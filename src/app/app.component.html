@@ -1,0 +1,42 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Third Line</span>
+    <span class="example-spacer"></span>
+    <button mat-flat-button color="primary" (click)="openOne()">
+      <mat-icon class="example-icon">brightness_3</mat-icon>
+      показать первую картинку
+    </button>
+
+    <span class="example-spacer"></span>
+    <button mat-flat-button color="primary" (click)="openTwo()">
+      <mat-icon class="example-icon">brightness_2</mat-icon>
+      показать вторую картинку
+    </button>
+
+    <span class="example-spacer"></span>
+    <button mat-flat-button color="primary" (click)="openAll()">
+      <mat-icon class="example-icon">brightness_1</mat-icon>
+      показать все картинки
+    </button>
+
+    <span class="example-spacer"></span>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="wraper">
+
+  <div [ngClass]="{open: openFirst, openall: open}" class="left col">
+
+    New York
+
+  </div>
+
+  <div class="right col" [ngClass]="{open: openSecond, openall: open}">
+
+    Manhattan
+
+  </div>
+
+</div>
