@@ -1,0 +1,38 @@
+mat-grid-list {
+  /*margin-top: 100px;*/
+}
+mat-card {
+  background-color: rgba(0,0,0,.035);
+}
+.mat-card-header {
+  display: inline-block;
+  width: 100%;
+}
+.mat-card-title, .mat-card-subtitle {
+  font-size: 1.8em;
+  text-align: left;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.example-card {
+    width: 400px;
+  }
+.mat-card-image {
+  height: auto;
+  width: 100%;
+  margin-bottom: 0 !important;
+}
+.mat-card-content {
+  margin-top: 24px;
+  height: 150px;
+  overflow: hidden;
+  text-align: left;
+  font-size: 1.28em;
+  line-height: 1.5;
+}
+.mat-card-actions {
+  display: flex;
+  justify-content: space-evenly;
+}
