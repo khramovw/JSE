@@ -1,0 +1,39 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.mat-card img {
+  height: 140px;
+  width: auto;
+  margin: 0 auto;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.example-card {
+  width: 20%;
+  margin: 3%;
+}
+mat-chip {
+  max-width: 200px;
+}
+.qty {
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:  white;
+  margin-left: 4px;
+}
+mat-card-actions {
+  text-align: center;
+}

@@ -1,0 +1,85 @@
+
+<mat-toolbar color="primary">
+
+  <mat-toolbar-row>
+    <span>Phone List</span>
+
+    <span class="example-spacer"></span>
+
+    <mat-icon
+      class="example-icon"
+      matBadge="{{cart}}"
+      matBadgeColor="warn"
+      matBadgePosition="before"
+      matBadgeSize="medium"
+    >
+
+      shopping_cart
+
+    </mat-icon>
+
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+<div class="wrapper">
+
+  <mat-card class="example-card" *ngFor="let phone of phonelist">
+
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image">
+        <mat-icon>star_border</mat-icon>
+      </div>
+      <mat-card-title>{{phone.name}}</mat-card-title>
+      <mat-card-subtitle>{{phone.model}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{phone.img}}" alt="{{phone.name}}">
+
+    <mat-card-content>
+      <p>{{phone.description}}</p>
+    </mat-card-content>
+
+    <div *ngIf="phone.qty; then on else off"></div>
+
+    <ng-template #on>
+      <mat-chip-list >
+        <mat-chip color="primary" selected>
+          Осталось на складе
+          <span class="qty">{{phone.qty}}</span>
+        </mat-chip>
+      </mat-chip-list>
+    </ng-template>
+
+    <ng-template #off>
+      <mat-chip-list>
+        <mat-chip color="accent" selected>
+          Ожидайте поступления!
+        </mat-chip>
+      </mat-chip-list>
+    </ng-template>
+
+    <!--<mat-chip-list *ngIf="phone.qty; else nophone">-->
+      <!--<mat-chip color="primary" selected>-->
+        <!--Осталось на складе-->
+        <!--<span class="qty">{{phone.qty}}</span>-->
+      <!--</mat-chip>-->
+    <!--</mat-chip-list>-->
+
+    <!--<mat-chip-list #off>-->
+      <!--<mat-chip color="accent" selected>-->
+        <!--Ожидайте поступления!-->
+      <!--</mat-chip>-->
+    <!--</mat-chip-list>-->
+
+    <mat-card-actions>
+
+      <button mat-raised-button color="primary" (click)="addToCart(phone)" [disabled]="!phone.qty">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>
+
