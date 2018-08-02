@@ -1,0 +1,36 @@
+
+.mat-card {
+  width: 12em;
+  margin: 6em;
+}
+
+.mat-card-image {
+  /*width: 10em;*/
+}
+
+.mat-card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+.mat-card-content p{
+  overflow: hidden !important;
+  -o-text-overflow: ellipsis !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  height: 96px;
+  margin: 0 -8px;
+}
+.mat-card-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mat-card-subtitle i {
+  cursor: pointer;
+}
+.mat-card-subtitle.isfavorite i {
+  color: red;
+}
