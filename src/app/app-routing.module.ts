@@ -1,9 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {FilmListComponent} from './components/film-list/film-list.component';
+
+// Components
+import { MainComponent } from './components/main/main.component';
+import { FilmsComponent } from './components/main/films/films.component';
+import { ActorsComponent } from './components/main/actors/actors.component';
 
 const routes: Routes = [
-  { path: '', component: FilmListComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'main' },
+  { path: 'home', component: MainComponent },
+  { path: 'films', component: FilmsComponent },
+  { path: 'actors', component: ActorsComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,10 @@
+.wraper {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+

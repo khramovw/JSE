@@ -1,18 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Material modules
-import { MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatSelectModule, MatToolbarModule } from '@angular/material';
-
-// Routing
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatPaginatorModule,
+  MatToolbarModule
+} from '@angular/material';
+import {FormsModule} from '@angular/forms';
 
-// Components
 import { AppComponent } from './app.component';
-import { FilmListComponent } from './components/film-list/film-list.component';
-import { FilmItemComponent } from './components/film-list/film-item/film-item.component';
+// Components
+import { MainComponent } from './components/main/main.component';
+import { FilmsComponent } from './components/main/films/films.component';
+import { ActorsComponent } from './components/main/actors/actors.component';
+import { MainToolbarComponent } from './components/main-toolbar/main-toolbar.component';
+import { FilmComponent } from './components/main/films/film/film.component';
+import { SearchComponent } from './components/search/search.component';
+import { SearchResoultComponent } from './components/search/search-resoult/search-resoult.component';
+
 
 
 
@@ -20,19 +32,26 @@ import { FilmItemComponent } from './components/film-list/film-item/film-item.co
 @NgModule({
   declarations: [
     AppComponent,
-    FilmListComponent,
-    FilmItemComponent
+    MainComponent,
+    FilmsComponent,
+    ActorsComponent,
+    MainToolbarComponent,
+    FilmComponent,
+    SearchComponent,
+    SearchResoultComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    MatIconModule,
     MatButtonModule,
+    MatIconModule,
     MatToolbarModule,
-    MatSelectModule,
     MatCardModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
     MatInputModule
   ],
   providers: [],

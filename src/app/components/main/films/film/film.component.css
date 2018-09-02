@@ -1,18 +1,11 @@
 
 .mat-card {
-  width: 12em;
-  margin: 6em;
+  width: 15em;
+  margin: 1em;
 }
-
-.mat-card-image {
-  /*width: 10em;*/
-}
-
 .mat-card-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   width: 100%;
+  min-height: 2em;
 }
 .mat-card-content p{
   overflow: hidden !important;
@@ -33,4 +26,21 @@
 }
 .mat-card-subtitle.isfavorite i {
   color: red;
+}
+
+.img-card-wraper {
+  height: 28em;
+  margin-top: 1em;
+}
+.film-title {
+  min-height: 3em;
+}
+.genre-wrap {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  min-height: 3em;
+}
+.genre-item {
+  margin-right: .5em;
 }

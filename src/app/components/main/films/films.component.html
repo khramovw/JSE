@@ -1,0 +1,53 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-button routerLink="home">
+      <span class="title">Film catalog</span>
+    </button>
+
+    <app-search [serchIn]="'/movie'"  (searchresult)="getSearchResult($event)"></app-search>
+
+    <span class="spacer"></span>
+
+    <mat-paginator
+      [length]="length"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="pageEventFoo($event, pageEvent = $event)">
+    </mat-paginator>
+
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- Search result-->
+<app-search-resoult [searchresult]="filmssearch"></app-search-resoult>
+<div class="wraper" *ngIf="filmssearch">
+  <ul >
+    <li *ngFor="let serchitem of filmssearch">{{serchitem.title}}</li>
+  </ul>
+</div>
+
+<div class="wraper">
+
+  <div class="film" id="{{film.id}}" *ngFor="let film of filmsobj">
+    <app-film [film]="film"></app-film>
+  </div>
+
+</div>
+
+
+<div class="paginator-wrap">
+
+   <mat-paginator
+    [length]="length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEventFoo($event, pageEvent = $event)">
+  </mat-paginator>
+
+</div>
+
+
+
+
+
