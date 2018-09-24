@@ -14,6 +14,7 @@ export class FilmsComponent implements OnInit {
 
   filmsobj;
   filmssearch = [];
+  imgsizepath = this.moviedb.getParamsPostersSrc().smallImgPath;
 
   // MatPaginator Inputs
   length = 100;
@@ -22,7 +23,6 @@ export class FilmsComponent implements OnInit {
 
   // MatPaginator Output
   pageEvent: PageEvent;
-  // numberpage = this.pageEvent.pageIndex;
 
   constructor( public moviedb: MoviedbService ) { }
 
@@ -30,8 +30,9 @@ export class FilmsComponent implements OnInit {
     this.getPageofNumber(1);
   }
 
+  // Get films
   getPageofNumber (pagenum: number = 1) {
-    this.moviedb.getPopularFilms(pagenum).subscribe( ( popfilms: any ) => {
+    this.moviedb.getFilms(pagenum, '/popular').subscribe( ( popfilms: any ) => {
       console.log(popfilms);
 
       // Number of popular films
@@ -41,7 +42,8 @@ export class FilmsComponent implements OnInit {
       // and if the description is missing add a stub
       this.filmsobj = popfilms.results;
       this.filmsobj.filter( el => {
-        el.overview ? el.overview = el.overview.substr(0, 157) + '...' : el.overview = 'Описание к этому фильму скоро появиться ...' ;
+        el.overview ? el.overview = el.overview.substr(0, 120) + '...' : el.overview = 'Описание к этому фильму скоро появиться ...' ;
+        el.vote_average % 1 === 0 ?  el.vote_average = el.vote_average + '.0' : el.vote_average;
       });
 
     }, err => console.log(err));
@@ -55,6 +57,6 @@ export class FilmsComponent implements OnInit {
   //  Get search result
   getSearchResult (e) {
     this.filmssearch = e.results;
-    console.log('filmssearch', this.filmssearch );
+    // console.log('filmssearch', this.filmssearch );
   }
 }

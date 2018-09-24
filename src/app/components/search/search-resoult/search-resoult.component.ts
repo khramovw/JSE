@@ -12,8 +12,14 @@ export class SearchResoultComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // this.filmssearch = this.searchresult.results;
+    this.filmssearch = this.searchresult.results;
     console.log('app-search-resoult', this.searchresult);
+  }
+
+  getSearchResult(e) {
+    console.log('app-search-resoult', e, this.searchresult);
+    this.filmssearch = this.searchresult.results;
+    console.log('app-search-resoult-', this.searchresult);
   }
 
 }

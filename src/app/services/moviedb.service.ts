@@ -33,16 +33,25 @@ export class MoviedbService {
       bigBackPath   : `${this.imgPath}/w1280`,
     };
   }
-  getPopularFilms (page?: number) {
-    return this.http.get(`${this.movieUrl}/popular?page=${page}&${this.params}`);
+  getFilms (page: number, paramget: string = '/popular') {
+    return this.http.get(`${this.movieUrl}${paramget}?${this.params}&page=${page}`);
   }
 
   getGenres () {
     return this.http.get(`${this.genreUrl}${this.params}`);
   }
 
-  getSearchFilms (getquery, searchin) {
-    return this.http.get(`${this.searchUrl}${searchin}?${this.params}&query=${getquery}&page=1&include_adult=false&region=ru`);
+  getSearch (getquery: string, searchin: string) {
+    return this.http.get(`${this.searchUrl}${searchin}?${this.params}&query=${getquery}&page=1&include_adult=true&region=ru`);
+  }
+
+  getActors (page?: number) {
+    return this.http.get(`${this.personUrl}/popular?page=${page}&${this.params}`);
+  }
+
+  getFilm (film_id: number = 0) {
+    //  https://api.themoviedb.org/3/movie/348350?api_key=0994e7679a856150aadcecf7de489bce&language=en-US
+    return this.http.get(`${this.movieUrl}/${film_id}?${this.params}`);
   }
 
 }

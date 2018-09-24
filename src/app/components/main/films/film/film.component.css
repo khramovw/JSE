@@ -1,46 +1,63 @@
 
-.mat-card {
-  width: 15em;
-  margin: 1em;
+
+/*new style*/
+.card-film {
+  width: 26em;
+  margin-bottom: 3em;
+  font-family: 'Roboto';
 }
-.mat-card-title {
-  width: 100%;
-  min-height: 2em;
+.card-film .card-wraper {
+  display: flex;
+  flex-direction: row;
 }
-.mat-card-content p{
-  overflow: hidden !important;
-  -o-text-overflow: ellipsis !important;
-  text-overflow: ellipsis !important;
-  display: -webkit-box !important;
-  -webkit-box-orient: vertical !important;
-  height: 96px;
-  margin: 0 -8px;
+.card-film .poster-card {
+  height: 16em;
+  position: relative;
 }
-.mat-card-subtitle {
+.card-film .poster-card img {
+  height: 100%;
+}
+.card-film .rating-film {
+  position: absolute;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  background-color: #32d6ff;
+  padding: .25em .75em;
+  font-weight: 400;
+  color: white;
+  font-size: .75em;
+
 }
-.mat-card-subtitle i {
-  cursor: pointer;
+.card-film .body-card {
+  display: inherit;
+  flex-direction: column;
+  padding: 0 .5em;
 }
-.mat-card-subtitle.isfavorite i {
-  color: red;
+.card-film .release-date {
+  margin-top: .5em;
+}
+.card-film .title-card {
+  font-weight: 700;
+  font-size: 1.2em;
+}
+.card-film .subtitle {
+  display: inherit;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card-film .ganre-item {
+  margin-right: .5em;
+}
+.card-film .description-card {
+  margin-top: .5em;
+  max-width: 100%;
+  font-size: .85em;
 }
 
-.img-card-wraper {
-  height: 28em;
-  margin-top: 1em;
-}
-.film-title {
-  min-height: 3em;
-}
-.genre-wrap {
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  min-height: 3em;
-}
-.genre-item {
-  margin-right: .5em;
+
+@media screen and (max-width: 1366px){
+  .card-film {
+    font-size: .75em;
+  }
 }

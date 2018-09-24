@@ -18,15 +18,16 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 // Components
 import { MainComponent } from './components/main/main.component';
+
 import { FilmsComponent } from './components/main/films/films.component';
-import { ActorsComponent } from './components/main/actors/actors.component';
-import { MainToolbarComponent } from './components/main-toolbar/main-toolbar.component';
 import { FilmComponent } from './components/main/films/film/film.component';
+import { FilmDetailComponent } from './components/main/films/film-detail/film-detail.component';
+
+import { ActorsComponent } from './components/main/actors/actors.component';
+
+import { MainToolbarComponent } from './components/main-toolbar/main-toolbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchResoultComponent } from './components/search/search-resoult/search-resoult.component';
-
-
-
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { SearchResoultComponent } from './components/search/search-resoult/searc
     MainToolbarComponent,
     FilmComponent,
     SearchComponent,
-    SearchResoultComponent
+    SearchResoultComponent,
+    FilmDetailComponent
   ],
   imports: [
     BrowserModule,

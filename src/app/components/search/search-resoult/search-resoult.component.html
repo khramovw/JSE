@@ -1,9 +1,10 @@
+
 <div class="wraper">
-  <ul >
+  <ul (searchresult)="getSearchResult($event)">
     <li *ngFor="let serchitem of filmssearch">{{serchitem.title}}</li>
   </ul>
 </div>
 
-
+<app-search [serchIn]="'/movie'"  ></app-search>
 
 

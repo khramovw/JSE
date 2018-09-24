@@ -1,1 +1,17 @@
 
+<div class="wraper">
+
+  <div class="serch-wraper">
+    <!-- Input search -->
+    <app-search class="input-serch" [serchIn]="'/multi'"  (searchresult)="getSearchResult($event)"></app-search>
+
+  </div>
+
+</div>
+
+<div class="wraper-films">
+  <h1>Latest Movies</h1>
+  <ul >
+    <li *ngFor="let film of filmsobj">{{film.title}}</li>
+  </ul>
+</div>

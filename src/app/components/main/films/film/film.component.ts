@@ -10,13 +10,12 @@ import { MoviedbService } from '../../../../services/moviedb.service';
 })
 export class FilmComponent implements OnInit {
   @Input() film;
-  imgsizepath = '';
-  genresfilm;
+  imgsizepath: string;
+  genresfilm: Object;
 
   constructor( public moviedb: MoviedbService ) { }
 
   ngOnInit() {
-    // console.log('genres', this.genres);
 
     // this.imgsizepath = this.moviedb.getParamsPostersSrc().bigBackPath;
     this.imgsizepath = this.moviedb.getParamsPostersSrc().smallBackPath;
@@ -26,12 +25,9 @@ export class FilmComponent implements OnInit {
   }
 
   getGenresList () {
-    this.moviedb.getGenres().subscribe(  el => {
-      // console.log('typeof', el.genres);
+    this.moviedb.getGenres().subscribe(( el: any ) => {
+      console.log(typeof el);
       this.genresfilm = el.genres;
-
-      // console.log('typeof', this.genresfilm);
-
     }, error => console.log(error));
   }
 
