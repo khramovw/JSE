@@ -1,0 +1,63 @@
+
+
+/*new style*/
+.card-film {
+  width: 26em;
+  margin-bottom: 3em;
+  font-family: 'Roboto';
+}
+.card-film .card-wraper {
+  display: flex;
+  flex-direction: row;
+}
+.card-film .poster-card {
+  height: 16em;
+  position: relative;
+}
+.card-film .poster-card img {
+  height: 100%;
+}
+.card-film .rating-film {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #32d6ff;
+  padding: .25em .75em;
+  font-weight: 400;
+  color: white;
+  font-size: .75em;
+
+}
+.card-film .body-card {
+  display: inherit;
+  flex-direction: column;
+  padding: 0 .5em;
+}
+.card-film .release-date {
+  margin-top: .5em;
+}
+.card-film .title-card {
+  font-weight: 700;
+  font-size: 1.2em;
+}
+.card-film .subtitle {
+  display: inherit;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card-film .ganre-item {
+  margin-right: .5em;
+}
+.card-film .description-card {
+  margin-top: .5em;
+  max-width: 100%;
+  font-size: .85em;
+}
+
+
+@media screen and (max-width: 1366px){
+  .card-film {
+    font-size: .75em;
+  }
+}
