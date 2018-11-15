@@ -1,5 +1,4 @@
 
-
 /*new style*/
 .card-film {
   width: 26em;
@@ -40,21 +39,50 @@
 .card-film .title-card {
   font-weight: 700;
   font-size: 1.2em;
+  color: #00bebe;
 }
 .card-film .subtitle {
   display: inherit;
   flex-direction: row;
   flex-wrap: wrap;
 }
+.card-film .subtitle > span {
+  margin-right: .5em;
+}
 .card-film .ganre-item {
   margin-right: .5em;
+}
+.card-film .ganre-item span {
+  color: #00bebe;
 }
 .card-film .description-card {
   margin-top: .5em;
   max-width: 100%;
   font-size: .85em;
 }
-
+.card-film .btn-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  transition: all .5s;
+  opacity: 0;
+}
+.card-film .btn-wrap button {
+  color: white;
+  background-color: aqua;
+}
+.card-film:hover .btn-wrap {
+  visibility: visible;
+  transition: all .5s;
+  opacity: 1;
+}
 
 @media screen and (max-width: 1366px){
   .card-film {

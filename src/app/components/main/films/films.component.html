@@ -16,7 +16,7 @@
       [length]="length"
       [pageSize]="pageSize"
       [pageSizeOptions]="pageSizeOptions"
-      (page)="pageEventFoo($event, pageEvent = $event)">
+      (page)="pageEventFoo(pageEvent = $event)">
     </mat-paginator>
 
   </mat-toolbar-row>
@@ -46,11 +46,19 @@
 <div class="films-list">
   <div class="wraper">
 
-    <div class="film" id="{{film.id}}" *ngFor="let film of filmsobj">
+    <div class="film" *ngFor="let film of filmsobj" id="{{film.id}}">
       <app-film [film]="film"></app-film>
     </div>
 
   </div>
+  <div *ngIf="addpage" class="wraper">
+
+    <div class="film" *ngFor="let filmadd of pageItemSizeObj" id="{{filmadd.id}}">
+      <app-film [film]="filmadd"></app-film>
+    </div>
+
+  </div>
+
 </div>
 
 
@@ -61,7 +69,7 @@
     [length]="length"
     [pageSize]="pageSize"
     [pageSizeOptions]="pageSizeOptions"
-    (page)="pageEventFoo($event, pageEvent = $event)">
+    (page)="pageEventFoo (pageEvent = $event)">
   </mat-paginator>
 
 </div>

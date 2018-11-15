@@ -1,7 +1,7 @@
 <mat-toolbar>
   <mat-toolbar-row>
     <button mat-button routerLink="home">
-      <span class="title">Film catalog</span>
+      <span class="title">Actors</span>
     </button>
 
     <app-search [serchIn]="'/person'"  (searchresult)="getSearchResult($event)"></app-search>
@@ -18,3 +18,56 @@
 
   </mat-toolbar-row>
 </mat-toolbar>
+
+<!-- Search result-->
+<div class="wraper search-result" *ngIf="actorsearch">
+  <ul >
+    <li *ngFor="let serchitem of actorsearch">
+
+      <div class="card-wraper">
+
+        <div class="img-card-wraper">
+          <img src="{{ imagePath + serchitem.profile_path | noimage: imagePath }}" alt="">
+        </div>
+
+        <div class="search-result-header">
+          {{serchitem.name}},
+        </div>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- List of films -->
+<div class="actors-list">
+  <div class="wraper">
+
+    <section class="card-item" *ngFor="let act of actors" id="{{act.id}}">
+      <div class="img-wrapper">
+        <img src="{{ imgPath + act.profile_path | noimage: imgPath  }}" alt="{{ act.name }}">
+      </div>
+      <div class="content-wrapper">
+        <h3>{{ act.name }}</h3>
+        <!--<div class="known-wrapper">-->
+          <!--<div class="known-for" *ngFor="let item of act.known_for">-->
+            <!--{{ item.title }}-->
+            <!--<div class="img-wrapper">-->
+              <!--<img src="{{ imgPath + item.poster_path }}" alt="item.title">-->
+            <!--</div>-->
+
+          <!--</div>-->
+        <!--</div>-->
+      </div>
+    </section>
+
+  </div>
+  <!--<div *ngIf="addpage" class="wraper">-->
+
+    <!--<div class="film" *ngFor="let filmadd of pageItemSizeObj" id="{{filmadd.id}}">-->
+      <!--<app-film [film]="filmadd"></app-film>-->
+    <!--</div>-->
+
+  <!--</div>-->
+
+</div>

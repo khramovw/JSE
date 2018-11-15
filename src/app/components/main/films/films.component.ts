@@ -15,6 +15,8 @@ export class FilmsComponent implements OnInit {
   filmsobj;
   filmssearch = [];
   imgsizepath = this.moviedb.getParamsPostersSrc().smallImgPath;
+  pageItemSizeObj: any = [];
+  addpage = false;
 
   // MatPaginator Inputs
   length = 100;
@@ -41,7 +43,7 @@ export class FilmsComponent implements OnInit {
       // Limit the number of characters in the description of the movie
       // and if the description is missing add a stub
       this.filmsobj = popfilms.results;
-      this.filmsobj.filter( el => {
+      this.filmsobj.filter( (el: any) => {
         el.overview ? el.overview = el.overview.substr(0, 120) + '...' : el.overview = 'Описание к этому фильму скоро появиться ...' ;
         el.vote_average % 1 === 0 ?  el.vote_average = el.vote_average + '.0' : el.vote_average;
       });
@@ -49,9 +51,31 @@ export class FilmsComponent implements OnInit {
     }, err => console.log(err));
   }
 
+  pageItemSize () {
+    const pageindex = this.pageEvent.pageIndex + 1;
+    const count = (this.pageEvent.pageSize / 20);
+    console.log('count:', count, 'pageindex:', pageindex);
+    if (count) {
+      this.addpage = !this.addpage;
+      for ( let i = 2; i <= count; i++ ) {
+        console.log('count', count);
+        this.moviedb.getFilms( i, '/popular').subscribe( (page: any) => {
+          console.log('page::', page);
+          page.results.filter(el => this.filmsobj.push(el));
+          console.log('this.filmsobj::', this.filmsobj);
+        });
+      }
+    }
+    console.log('this.pageItemSizeObj::', this.pageItemSizeObj);
+  }
+
   // Pagination
-  pageEventFoo(e, pageevent) {
-    this.getPageofNumber(((e.pageIndex + 1) * (e.pageSize / 20)));
+  pageEventFoo () {
+    this.getPageofNumber(((this.pageEvent.pageIndex + 1) * (this.pageEvent.pageSize / 20)));
+    this.pageSize = this.pageEvent.pageSize;
+    console.log(this.pageEvent);
+    // this.getPageofNumber((this.pageEvent.pageIndex + 1));
+    this.pageItemSize();
   }
 
   //  Get search result
@@ -60,3 +84,6 @@ export class FilmsComponent implements OnInit {
     // console.log('filmssearch', this.filmssearch );
   }
 }
+
+
+

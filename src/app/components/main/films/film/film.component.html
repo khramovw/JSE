@@ -33,6 +33,11 @@
     <div class="poster-card">
       <div class="rating-film">{{film.vote_average}}</div>
       <img src="{{ imgsizepath + film.poster_path }}" alt="{{film.title}} - {{film.original_title}}">
+      <div class="btn-wrap">
+        <button mat-icon-button>
+          <mat-icon>play_arrow</mat-icon>
+        </button>
+      </div>
     </div>
     <div class="body-card">
       <div class="title-card">
@@ -40,6 +45,7 @@
       </div>
       <div class="release-date">{{film.release_date}}</div>
       <div class="subtitle">
+        <span>жанр: </span>
         <div class="ganre-item" *ngFor="let gan of film.genre_ids">
           <ng-container *ngFor="let ganre of genresfilm">
             <span *ngIf="ganre.id == gan">{{ganre.name}}</span>

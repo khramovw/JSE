@@ -10,6 +10,7 @@ import { MoviedbService } from '../../../../services/moviedb.service';
 })
 export class FilmComponent implements OnInit {
   @Input() film;
+  @Input() filmadd;
   imgsizepath: string;
   genresfilm: Object;
 
@@ -24,9 +25,8 @@ export class FilmComponent implements OnInit {
     this.getGenresList ();
   }
 
-  getGenresList () {
+  getGenresList() {
     this.moviedb.getGenres().subscribe(( el: any ) => {
-      console.log(typeof el);
       this.genresfilm = el.genres;
     }, error => console.log(error));
   }

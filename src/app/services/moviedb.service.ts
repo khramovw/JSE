@@ -10,8 +10,9 @@ export class MoviedbService {
   movieUrl      = `${this.apiUrl}/movie`;
   searchUrl     = `${this.apiUrl}/search`;
   personUrl     = `${this.apiUrl}/person`;
-  genreUrl     = `${this.apiUrl}/genre/movie/list?`;
+  genreUrl      = `${this.apiUrl}/genre/movie/list?`;
   params        = `api_key=${this.apiKey}&language=ru-RU`;
+  configuration = `${this.apiUrl}/configuration?${this.params}`;
 
   // Size image posters
   posterSize    = {};
@@ -33,6 +34,10 @@ export class MoviedbService {
       bigBackPath   : `${this.imgPath}/w1280`,
     };
   }
+  getParams () {
+    return this.http.get(`${this.configuration}`);
+  }
+
   getFilms (page: number, paramget: string = '/popular') {
     return this.http.get(`${this.movieUrl}${paramget}?${this.params}&page=${page}`);
   }

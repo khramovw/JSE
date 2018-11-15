@@ -4,6 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+// Material modules
 import {
   MatButtonModule,
   MatCardModule,
@@ -13,7 +16,7 @@ import {
   MatPaginatorModule,
   MatToolbarModule
 } from '@angular/material';
-import {FormsModule} from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
 // Components
@@ -28,6 +31,7 @@ import { ActorsComponent } from './components/main/actors/actors.component';
 import { MainToolbarComponent } from './components/main-toolbar/main-toolbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchResoultComponent } from './components/search/search-resoult/search-resoult.component';
+import { NoimagePipe } from './pipes/noimage.pipe';
 
 
 @NgModule({
@@ -40,7 +44,8 @@ import { SearchResoultComponent } from './components/search/search-resoult/searc
     FilmComponent,
     SearchComponent,
     SearchResoultComponent,
-    FilmDetailComponent
+    FilmDetailComponent,
+    NoimagePipe
   ],
   imports: [
     BrowserModule,
